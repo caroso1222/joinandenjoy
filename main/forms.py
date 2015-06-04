@@ -4,7 +4,7 @@ from django import forms
 class ContactenosForm(forms.Form):
 	nombre = forms.CharField(max_length = 100,
 		widget=forms.TextInput(attrs={'class':'form-control simplebox', 'placeholder':'Tu nombre...'
-			,'id':'nombre-input'}),
+			,'id':'nombre-input', 'type':'text'}),
 		required = False)
 
 	email = forms.CharField(max_length = 100,

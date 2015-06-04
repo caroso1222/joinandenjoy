@@ -290,14 +290,14 @@
 				</div>
 				
 				<div class="col-lg-6">
-					<form role="form">
+					<form action = "/" method = "post">{% csrf_token %}
 					  <div class="form-group">
 					    <label for="exampleInputName1">Tu nombre</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+					    {{formulario.nombre}}
 					    <label for="exampleInputEmail1">Tu email</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+					    {{formulario.email}}
 					    <label for="exampleInputText1">Tu mensaje</label>
-					    <textarea class="form-control" rows="3"></textarea>
+					    {{formulario.mensaje}}
 					  </div>
 					  <button type="submit" class="btn btn-default">Enviar</button>
 					</form>

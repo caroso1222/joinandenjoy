@@ -17,7 +17,7 @@ def home(request):
 			nombre = formulario.cleaned_data['nombre']
 			email = formulario.cleaned_data['email']
 			mensaje = formulario.cleaned_data['mensaje']
-			send_mail('Nuevo mensaje en hype.com.co', "Nombre: " + nombre + "\n" + "Email: " + email + "\n\n" + "Mensaje: " + "\n"+mensaje, 'holamundo@joinandenjoy.co',
+			send_mail('Nuevo mensaje en JoinAndEnjoy', "Nombre: " + nombre + "\n" + "Email: " + email + "\n\n" + "Mensaje: " + "\n"+mensaje, 'holamundo@joinandenjoy.co',
 				['carlos.roso@joinandenjoy.co','sebastian.macias@joinandenjoy.co','holamundo@joinandenjoy.co'], fail_silently=False)
 			request.session['mensaje_enviado'] = "SI"
 			return HttpResponseRedirect('')
