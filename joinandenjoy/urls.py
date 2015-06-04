@@ -10,4 +10,5 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.home, name ="home"),
+    url(r'^adriana-barreneche-450679/', TemplateView.as_view(template_name="adriana-barreneche.html")),
 ]
