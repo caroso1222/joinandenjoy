@@ -1,0 +1,197 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+	<!-- Home start -->
+
+	<section id="home" class="pfblock-image screen-height">
+        <div class="home-overlay"></div>
+		<div class="intro">
+			<div class="start" style="font-family: Raleway, "Times New Roman", Times, sans-serif;">Relajate y resalta tu belleza en</div>
+			<h1>Armonia Naturall</h1>
+			<h1>SPA</h1>
+			<div class="start">Equilibrio entre Salud y Belleza</div>
+		</div>
+
+        <a href="#portfolio">
+		<div class="scroll-down">
+            <span>
+                <i class="fa fa-angle-down fa-2x"></i>
+            </span>
+		</div>
+        </a>
+
+	</section>
+
+	<!-- Home end -->
+
+	<!-- Navigation start -->
+
+	<header class="header">
+
+		<nav class="navbar navbar-custom" role="navigation">
+
+			<div class="container">
+
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">Armonia Naturall SPA</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="custom-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#portfolio">Servicios</a></li>
+						<li><a href="#nosotros">Nosotros</a></li>                       
+                        <li><a href="#skills">Instalaciones</a></li>
+						<li><a href="#testimonials">Testimonios</a></li>
+						<li><a href="#contact">Contacto</a></li>
+					</ul>
+				</div>
+
+			</div><!-- .container -->
+
+		</nav>
+
+	</header>
+
+	{% endblock %}
+
+	{% block nosotros %}
+<section id="nosotros" class="pfblock pfblock-gray">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">El SPA</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+							Armonia Naturall SPA es un lugar donde tu cuerpo y mente puedan encontrar el equilibrio perfecto entre la salud y la belleza.
+ 						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="row">
+
+				<div class="col-sm-3">
+
+					<div class="iconbox wow slideInLeft">
+						<div class="iconbox-icon">
+							<span class="icon-badge"></span>
+						</div>
+						<div class="iconbox-text">
+							<h3 class="iconbox-title">Calidad </h3>
+							<div class="iconbox-desc">
+								Implementamos procedimientos de la mejor calidad, brindandole bienestar y seguridad.
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-3">
+
+					<div class="iconbox wow slideInLeft">
+						<div class="iconbox-icon">
+							<span class="icon-graduation"></span>
+						</div>
+						<div class="iconbox-text">
+							<h3 class="iconbox-title">Experiencia</h3>
+							<div class="iconbox-desc">
+								Contamos con un equipo de médicos y especialistas altamente calificados con gran experiencia.
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-3">
+
+					<div class="iconbox wow slideInRight">
+						<div class="iconbox-icon">
+							<span class="icon-vector"></span>
+						</div>
+						<div class="iconbox-text">
+							<h3 class="iconbox-title">Tecnología</h3>
+							<div class="iconbox-desc">
+								Todos nuestros tratamientos involucran tecnología de punta y clinicamente probada.
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-3">
+
+					<div class="iconbox wow slideInRight">
+						<div class="iconbox-icon">
+							<span class="icon-like"></span>
+						</div>
+						<div class="iconbox-text">
+							<h3 class="iconbox-title">Servicio</h3>
+							<div class="iconbox-desc">
+								 Nuestro objetivo es brindar el mejor servicio y un excelente trato a todos nuestros clientes.
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>
+	{% endblock %}
+	{% block footer %}
+<footer id="footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-12">
+
+					<ul class="social-links">
+						<li><a href="index.html#" class="wow fadeInUp"><i class="fa fa-facebook"></i></a></li>
+						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".1s"><i class="fa fa-twitter"></i></a></li>
+						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".2s"><i class="fa fa-google-plus"></i></a></li>
+						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".4s"><i class="fa fa-pinterest"></i></a></li>
+						<li><a href="index.html#" class="wow fadeInUp" data-wow-delay=".5s"><i class="fa fa-envelope"></i></a></li>
+					</ul>
+
+					<p class="heart">
+                        Trabajamos con  el <span class="fa fa-heart fa-2x animated pulse"></span> 
+                    </p>
+                    <p class="copyright">
+                        Armonia Naturall SPA © 2015  
+					</p>
+					<p class="copyright">
+                        Carrera 13 # 119 - 27 | Bogotá - Colombia
+					</p>
+					<p class="copyright">
+                        Tel: (571) 4732811 - (57) 3013791069
+					</p>
+
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</footer>
+	{% endblock %}
+
+
+	<!-- Contact end -->
+
+	<!-- Footer start -->
+
+
+
