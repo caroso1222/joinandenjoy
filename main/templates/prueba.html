@@ -1,6 +1,6 @@
 
 {% extends "base.html" %}
-{% block titulo %}Dana Spa{% endblock %}
+{% block titulo %} {{nombre}} {% endblock %}
 {% block content %} 
 
 
@@ -8,7 +8,7 @@
         <div class="home-overlay"></div>
 		<div class="intro">
 			<div class="start">Relajate y resalta tu belleza en</div>
-			<h1>Dana Spa</h1>
+			<h1>{{nombre}}</h1>
 			<div class="start">Equilibrio entre Salud y Belleza</div>
 		</div>
 
@@ -39,7 +39,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html">Dana Spa</a>
+					<a class="navbar-brand" href="index.html">{{nombre}}</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="custom-collapse">
@@ -82,7 +82,7 @@
 						<h2 class="pfblock-title">El SPA</h2>
 						<div class="pfblock-line"></div>
 						<div class="pfblock-subtitle">
-							Dana Spa es un lugar donde tu cuerpo y mente puedan encontrar el equilibrio perfecto entre la salud y la belleza.
+							{{nombre}} es un lugar donde tu cuerpo y mente puedan encontrar el equilibrio perfecto entre la salud y la belleza.
  						</div>
 					</div>
 
@@ -181,13 +181,13 @@
                         Trabajamos con  el <span class="fa fa-heart fa-2x animated pulse"></span> 
                     </p>
                     <p class="copyright">
-                        Dana SPA © 2015  
+                        {{nombre}} © 2015  
 					</p>
 					<p class="copyright">
-                        Avenida 68 # 23 - 45 | Bogotá - Colombia
+                        {{direccion}} | {{ciudad}} - Colombia
 					</p>
 					<p class="copyright">
-                        Tel: (571) 5718970 -  (571) 7024912
+                        Tel: {{telefono}}
 					</p>
 
 
