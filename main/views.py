@@ -60,7 +60,7 @@ def home(request):
 	return render(request,'index.html',context)
 
 
-def generate(request):
+def generate2(request):
 	with open(csv_spas,'rb') as csv_file:
 		dialect = csv.Sniffer().sniff(csv_file.read().decode("latin1").encode('utf8'), delimiters=";")
 		csv_file.seek(0)
@@ -126,7 +126,7 @@ def ver_spa(request, slug):
 	context = {"h1_arriba":h1_arriba,"h1_abajo":h1_abajo,"h2":h2,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email,"facebook":facebook}
 	return render(request,'prueba.html', context)
 
-def generate2(request):
+def generate(request):
 	with open(csv_spas,'rb') as csv_file:
 		dialect = csv.Sniffer().sniff(csv_file.read().decode("latin1").encode('utf8'), delimiters=";")
 		csv_file.seek(0)
@@ -135,7 +135,7 @@ def generate2(request):
 		for row in data_reader:
 			i = i+1
 			try:
-				if row[0]!='h1_arriba': # No se mete el primer registro
+				if row[0]!='h1 arriba': # No se mete el primer registro
 					spa, created = Spa.objects.get_or_create(nombre = row[3].strip())
 
 					if created == True:
@@ -148,7 +148,8 @@ def generate2(request):
 						spa.direccion = row[5].strip()
 						spa.ciudad = row[6].strip()
 						spa.email = row[7].strip()
-						spa.facebook = row[8].strip()
+						spa.email2 = row[8].strip()
+						spa.facebook = row[9].strip()
 						spa.correo_enviado = "NO"
 						#arma el contexto para pasarlo al template
 						context = {"h1_arriba":spa.h1_arriba,"h1_abajo":spa.h1_abajo,"h2":spa.h2,"nombre":spa.nombre,"telefono":spa.telefono,"direccion":spa.direccion,"ciudad":spa.ciudad,"email":spa.email,"facebook":spa.facebook}
@@ -173,7 +174,7 @@ def generate2(request):
 	context = {"h1_arriba":"h1_arriba"}
 	return render(request,'index.html',context)
 
-def emails_spa(request):
+def emails_spa3(request):
 	for spa in Spa.objects.all():
 		if spa.correo_enviado == "NO":
 			send_mail('Propuesta', "Hola " + spa.nombre + "\n" + "Email: " + "\n\n" + "Mensaje: " + "\n"+"guash", 'sebastian.macias@joinandenjoy.co',
@@ -183,41 +184,44 @@ def emails_spa(request):
 	context = {"h1_arriba":"h1_arriba"}
 	return render(request,'index.html',context)
 
-def emails_spa2(request):
-	plaintext = get_template('spa-email.txt')
-	htmly = get_template('spa-email.html')
+def emails_spa(request):
 
-	d = Context({ 'nombre': "sebastia" })
+	for spa in Spa.objects.all():
+		if spa.correo_enviado == "NO":
+			spa.correo_enviado = "SI"
+			spa.save()
+			context = {"nombre":spa.nombre, "link":spa.slug, "h1":spa.h1_arriba}
+			if spa.facebook != "NO":
+				context = {"nombre":spa.nombre, "link":spa.slug, "h1":spa.h1_arriba, "tiene_fb":"SI", "fb_link":spa.facebook}
+			html_content = render_to_string('spa-email.html', context)
+			text_content = render_to_string('spa-email.txt', context)
+			lista_correos = ['ce.roso398@gmail.com']
+			if spa.email != "NO":
+				lista_correos.append(spa.email)
+			if spa.email2 != "NO":
+				lista_correos.append(spa.email2)
+			if spa.facebook != "NO":
+				lista_correos.append('sebastian.macias.y@gmail.com')
+			
+			subject, from_email, to = 'holas', 'sebastian.macias@joinandenjoy.co', lista_correos
 
-	subject, from_email, to = 'hello', 'sebastian.macias@joinandenjoy.co', 'ce.roso398@gmail.com'
-	text_content = plaintext.render(d)
-	html_content = htmly.render(d)
-	msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-	msg.attach_alternative(html_content, "text/html")
-	msg.send()
-	context = {"h1_arriba":"h1_arriba"}
-	return render(request,'index.html',context)
+			print lista_correos
+			print spa.nombre
 
-def emails_spa3(request):
-	context = {"nombre":"h1_arriba"}
-	html_content = render_to_string('spa-email.html', context)
-	text_content = render_to_string('spa-email.txt', context)
+			msg = EmailMultiAlternatives(subject, text_content, from_email, to)
 
-	subject, from_email, to = 'holas', 'sebastian.macias@joinandenjoy.co', 'ce.roso398@gmail.com'
-	msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+			msg.attach_alternative(html_content, "text/html")
+			msg.mixed_subtype = 'related'
 
-	msg.attach_alternative(html_content, "text/html")
-	msg.mixed_subtype = 'related'
+			for f in ['Mock-up.jpg']:
+				elpath = BASE_DIR + "/main/templates/static/img/Mock-up.jpg"
+				fp = open(elpath,  'rb')
+				msg_img = MIMEImage(fp.read())
+				fp.close()
+				msg_img.add_header('Content-ID', '<{}>'.format(f))
+				msg.attach(msg_img)
 
-	for f in ['Mock-up.jpg']:
-		elpath = BASE_DIR + "/main/templates/static/img/Mock-up.jpg"
-		fp = open(elpath,  'rb')
-		msg_img = MIMEImage(fp.read())
-		fp.close()
-		msg_img.add_header('Content-ID', '<{}>'.format(f))
-		msg.attach(msg_img)
-
-	msg.send()
+			msg.send()
 
 	context = {"h1_arriba":"h1_arriba"}
 	return render(request,'index.html',context)

@@ -8,7 +8,13 @@
         <div class="home-overlay"></div>
 		<div class="intro">
 			<div class="start">Relajate y resalta tu belleza en</div>
-			<h1>{{nombre}}</h1>
+			<h1>{{h1_arriba}}</h1>
+			{% if not h1_abajo == "NO" %}
+			<h1>{{h1_abajo}}</h1>
+			{% endif %}
+			{% if not h2 == "NO" %}
+			<h2>{{h2}}</h2>
+			{% endif %}
 			<div class="start">Equilibrio entre Salud y Belleza</div>
 		</div>
 

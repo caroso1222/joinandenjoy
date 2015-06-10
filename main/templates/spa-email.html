@@ -1,10 +1,10 @@
 	<!DOCTYPE html>
 <html>
 <body>
-	Hello <strong>Dana Spa</strong>
+	Hola <strong>{{nombre}}</strong>
 <p>Buenas tardes.</p>
 <br>
-<p>Soy Sebastian Macias, del grupo creativo <strong>Join&amp;Enjoy</strong>de Bogotá y tenemos una propuesta para <strong>Wow Gentestilos.</strong> </p>
+<p>Soy Sebastian Macias, del grupo creativo <strong>Join&amp;Enjoy</strong>de Bogotá y tenemos una propuesta para <strong>{{nombre}}</strong> </p>
 <br>
 <p>Hemos desarrollado una Pagina web con las últimas tendencias en diseño para impulsar tu Negocio. </p>
 
@@ -16,14 +16,14 @@
 			<!--td rowspan=2 ><img src="https://dl.dropboxusercontent.com/u/6625828/Mock-up.jpg"></td-->
 		</tr>  
 		<tr style = "vertical-align:middle;">
-			<td colspan=2 style = " padding-bottom:10%; padding-left: 3%; color: #ffffff; text-align: center; text-transform: uppercase; font-size:1.4em;">MAJA SPA</td>
+			<td colspan=2 style = " padding-bottom:10%; padding-left: 3%; color: #ffffff; text-align: center; text-transform: uppercase; font-size:1.4em;">{{h1}}</td>
 		</tr>   
 	</table>
 </div>
 
 <div style="text-align: center">
 	<p>En el siguiente link encontrarás una muestra de lo que podrá ser su página:</p>
-	<a href="http://joinandenjoy.co/marisol-caro-159291/">http://joinandenjoy.co/marisol-caro-159291/</a>
+	<a href="http://joinandenjoy.co/p/{{link}}">http://joinandenjoy.co/p/{{link}}</a>
 </div>
 
 <div style="text-align: center">
@@ -38,16 +38,19 @@
 
 
 <p><strong>Sebastian Macias</strong></p>
-<br>
-<p>¿Tienes alguna duda, inquietud o sugerencia?</p>
-<br>
 <p>Sebastian.Macias@joinandenjoy.co</p>
 
 <p>No olvides visitar nuestra página web en <a href="www.joinandenjoy.co">www.joinandenjoy.co </a></p>
 
+
+
 <br>
 <p style ="font-size: 0.6em;">*Dominio web sujeto a disponibilidad.</p>
 <p style ="font-size: 0.6em;">**La página web de muestra será deshabilitada en el 30 de junio de 2015</p>
+
+{% if tiene_fb == "SI" %}
+<a href="{{fb_link}}">LINK DE FACEBOOK</a>
+{% endif %}
 
 </body>
 </html>
