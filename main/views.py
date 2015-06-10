@@ -203,10 +203,10 @@ def emails_spa(request):
 			if spa.facebook != "NO":
 				lista_correos.append('sebastian.macias.y@gmail.com')
 			
-			subject, from_email, to = 'holas', 'sebastian.macias@joinandenjoy.co', lista_correos
+			sujeto = spa.nombre + "- Promoción"
+			subject, from_email, to = sujeto, 'sebastian.macias@joinandenjoy.co', lista_correos
 
 			print lista_correos
-			print spa.nombre
 
 			msg = EmailMultiAlternatives(subject, text_content, from_email, to)
 
