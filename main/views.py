@@ -206,7 +206,7 @@ def emails_spa(request):
 				lista_correos.append('sebastian.macias.y@gmail.com')
 			
 			sujeto = spa.nombre + "- Promocion"
-			subject, from_email, to = sujeto.decode("latin1").encode('utf8'), 'sebastian.macias@joinandenjoy.co', lista_correos
+			subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'sebastian.macias@joinandenjoy.co', lista_correos
 
 			print lista_correos
 
