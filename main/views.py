@@ -197,15 +197,15 @@ def emails_spa(request):
 			text_content = render_to_string('spa-email.txt', context)
 			lista_correos = ['ce.roso398@gmail.com']
 			if spa.email != "NO":
-				#lista_correos.append(spa.email)
+				lista_correos.append(spa.email)
 				print "hoa"
 			if spa.email2 != "NO":
-				#lista_correos.append(spa.email2)
+				lista_correos.append(spa.email2)
 				print "hoa"
 			if spa.facebook != "NO":
 				lista_correos.append('sebastian.macias.y@gmail.com')
 			
-			sujeto = spa.nombre + "- Promocion"
+			sujeto = spa.nombre + " - Promocion"
 			subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'sebastian.macias@joinandenjoy.co', lista_correos
 
 			print lista_correos
