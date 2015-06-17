@@ -10,7 +10,8 @@ urlpatterns = [
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.home, name ="home"),
-    url(r'^generate/', views.generate, name ="generate"),
+    url(r'^generate_spa/', views.generate_spa, name ="generate_spa"),
+    url(r'^generate_cirujano/', views.generate_cirujano, name ="generate_cirujano"),
     url(r'^emails_spa/', views.emails_spa, name ="emails_spa"),
     url(r'^adriana-barreneche-450679/', TemplateView.as_view(template_name="adriana-barreneche.html")),
     url(r'^armonia-naturall-spa-403921/', TemplateView.as_view(template_name="armonia-naturall-spa.html")),

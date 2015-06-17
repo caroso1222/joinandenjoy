@@ -27,6 +27,8 @@ from email.MIMEImage import MIMEImage
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
 BASE_DIR_SPAS = BASE_DIR + "/main/templates/spas/"
+csv_cirujanos = BASE_DIR + "/csv-files/Clientes-cirujanos.csv"
+BASE_DIR_CIRUJANOS = BASE_DIR + "/main/templates/cirujanos/"
 
 
 EMAIL_HOST = 'smtp.webfaction.com'
@@ -59,59 +61,6 @@ def home(request):
 
 	return render(request,'index.html',context)
 
-
-def generate2(request):
-	with open(csv_spas,'rb') as csv_file:
-		dialect = csv.Sniffer().sniff(csv_file.read().decode("latin1").encode('utf8'), delimiters=";")
-		csv_file.seek(0)
-		data_reader = csv.reader(csv_file.read().decode("latin1").encode('utf8').splitlines(), dialect)
-		#data_reader = csv.reader(csv_file.read().decode("latin1").encode('utf8').splitlines())
-		i = 0
-		for row in data_reader:
-			i = i+1
-			try:
-				if row[0]!='h1_arriba': # No se mete el primer registro
-					h1_arriba = row[0].strip()
-					h1_abajo = row[1].strip()
-					h2 = row[2].strip()
-					nombre = row[3].strip()
-					telefono = row[4].strip()
-					direccion = row[5].strip()
-					ciudad = row[6].strip()
-					email = row[7].strip()
-					facebook = row[8].strip()
-					contacto = row[9].strip()
-					web = row[10].strip()
-					context = {"h1_arriba":h1_arriba,"h1_abajo":h1_abajo,"h2":h2,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email,"facebook":facebook}
-					la_url = nombre.replace (" ", "-")
-					la_url = la_url.replace (".", "-")
-					la_url = smart_str(la_url).decode('utf-8')
-					la_url = u'%s'%la_url
-					la_url = unicodedata.normalize('NFKD', la_url).encode('ascii','ignore')
-					content = render_to_string('prueba.html', context) 
-					content = smart_str(content)    
-					with open(BASE_DIR_SPAS + la_url + ".html", 'w') as static_file:
-						static_file.write(content)
-
-					random_index = randint(0,999)
-
-					print la_url + "-"+ "%d"%random_index
-			except Exception,err:
-				print i
-				print "error"
-				print traceback.format_exc()
-				break
-	print "Spas actualizados"
-
-
-	context = {"h1_arriba":h1_arriba,"h1_abajo":h1_abajo,"h2":h2,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email,"facebook":facebook}
-	content = render_to_string('prueba.html', context) 
-	content = smart_str(content)    
-	with open(BASE_DIR_SPAS + "prueba-2.html", 'w') as static_file:
-		static_file.write(content)
-
-	return render(request,'index.html',context)
-
 def ver_spa(request, slug):
 	spa = get_object_or_404(Spa,slug = slug)
 	h1_arriba = spa.h1_arriba
@@ -126,7 +75,19 @@ def ver_spa(request, slug):
 	context = {"h1_arriba":h1_arriba,"h1_abajo":h1_abajo,"h2":h2,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email,"facebook":facebook}
 	return render(request,'prueba.html', context)
 
-def generate(request):
+def ver_cirujano(request, slug):
+	cirujano = get_object_or_404(Cirujano,slug = slug)
+	nombre = cirujano.nombre + " " + cirujano.apellido
+	telefono = cirujano.telefono
+	direccion = cirujano.direccion
+	ciudad = cirujano.ciudad
+	email = cirujano.email
+	h2_arriba = cirujano.h2_arriba
+	h2_abajo = cirujano.h2_abajo
+	context = {"h2_arriba":h2_arriba,"h2_abajo":h2_abajo,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email}
+	return render(request,'cirujano.html', context)
+
+def generate_spa(request):
 	with open(csv_spas,'rb') as csv_file:
 		dialect = csv.Sniffer().sniff(csv_file.read().decode("latin1").encode('utf8'), delimiters=";")
 		csv_file.seek(0)
@@ -174,16 +135,6 @@ def generate(request):
 	context = {"h1_arriba":"h1_arriba"}
 	return render(request,'index.html',context)
 
-def emails_spa3(request):
-	for spa in Spa.objects.all():
-		if spa.correo_enviado == "NO":
-			send_mail('Propuesta', "Hola " + spa.nombre + "\n" + "Email: " + "\n\n" + "Mensaje: " + "\n"+"guash", 'sebastian.macias@joinandenjoy.co',
-					['ce.roso398@gmail.com','sebastian.macias.y@gmail.com'], fail_silently=False)
-			spa.correo_enviado = "SI"
-			spa.save()
-	context = {"h1_arriba":"h1_arriba"}
-	return render(request,'index.html',context)
-
 def emails_spa(request):
 
 	for spa in Spa.objects.all():
@@ -227,3 +178,48 @@ def emails_spa(request):
 
 	context = {"h1_arriba":"h1_arriba"}
 	return render(request,'index.html',context)
+
+def generate_cirujano(request):
+	filename = csv_cirujanos
+	reader = unicode_csv_reader(open(filename))
+	for row in reader:
+		if row[0]!='nombre':
+			cirujano, created = Cirujano.objects.get_or_create(nombre = row[0].strip(), apellido = row[2].strip())
+			if created == True:
+				#asigna los atributos a la nueva instancia del spa
+				cirujano.nombre = row[0].strip()
+				cirujano.direccion = row[1].strip()
+				#apellido = smart_str(row[2].strip()).decode('utf-8')
+				#la_url = unicodedata.normalize('NFKD', apellido).encode('ascii','ignore')
+				cirujano.apellido = row[2].strip()
+				nombre_entero = cirujano.nombre + " " + cirujano.apellido
+				cirujano.ciudad = row[3].strip()
+				cirujano.telefono = row[4].strip()
+				cirujano.email = row[7].strip()
+				cirujano.h2_arriba = nombre_entero
+				cirujano.h2_abajo = "NO"
+				cirujano.correo_enviado = "NO"
+				#arma el contexto para pasarlo al template
+				
+				context = {"h2_arriba":cirujano.h2_arriba,"h2_abajo":cirujano.h2_abajo,"nombres":nombre_entero,"telefono":cirujano.telefono,"direccion":cirujano.direccion,"ciudad":cirujano.ciudad,"email":cirujano.email}
+				#arma la url con guiones en vez de espacios, sin tildes y con un numero aleatorio
+				la_url = nombre_entero.replace (" ", "-")
+				la_url = la_url.replace (".", "-")
+				la_url = la_url.replace ("&", "y")
+				la_url = la_url.replace ("/", "-")
+				la_url = smart_str(la_url).decode('utf-8')
+				la_url = u'%s'%la_url
+				la_url = unicodedata.normalize('NFKD', la_url).encode('ascii','ignore')
+				random_index = randint(0,9999)
+				cirujano.slug = la_url + "-"+ "%d"%random_index
+				#ingresa el spa a la base de datos
+				cirujano.save()  
+	
+	print "Cirujanos actualizados"
+	context = {"h1_arriba":"h1_arriba"}
+	return render(request,'index.html',context)
+
+def unicode_csv_reader(utf8_data, dialect=csv.excel, **kwargs):
+    csv_reader = csv.reader(utf8_data, dialect=dialect, **kwargs)
+    for row in csv_reader:
+        yield [unicode(cell, 'utf-8') for cell in row]

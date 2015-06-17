@@ -1,6 +1,6 @@
 	<!-- Home start -->
 {% extends "base-cirujanos.html" %}
-{% block titulo %} elnombre {% endblock %}
+{% block titulo %} {{nombre}} {% endblock %}
 
 {% block home %}
     <section id="home" class="pfblock-image screen-height">
@@ -9,7 +9,7 @@
             <div class="start" style="font-family: Raleway, "Times New Roman", Times, sans-serif;"></div>
             <h1>Libera tu belleza</h1>
             <br>
-            <h2> Dr. Sebastian Macias</h2>
+            <h2> Dr. {{nombre}}</h2>
             <h2></h2>
             <div class="start">Cirujano plástico</div>
             <h3>Experiencia, seguridad y calidad.</h3>
@@ -176,16 +176,16 @@
 					</ul>
 
 					<p class="heart">
-                        Trabajamos con el <span class="fa fa-heart fa-2x animated pulse"></span> en Bogotá
+                        Trabajamos con el <span class="fa fa-heart fa-2x animated pulse"></span> en {{ciudad}}
                     </p>
                     <p class="copyright">
                         {{nombre}} © 2015 
 					</p>
                     <p class="copyright">
-                        Cll 59 No. 10 - 50 | Bogotá - Colombia
+                        {{direccion}} | {{ciudad}} - Colombia
                     </p>
                     <p class="copyright">
-                        Tel: (+571) 4286141 - (57) 318 5809398
+                        Tel: {{telefono}}
                     </p>
 
 				</div>
