@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>{% block titulo %}{% endblock %}</title>
+
+	<!-- CSS -->
+	<link href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+	<link href="{{STATIC_URL}}css/font-awesome.min.css" rel="stylesheet" media="screen">
+	<link href="{{STATIC_URL}}css/simple-line-icons.css" rel="stylesheet" media="screen">
+	<link href="{{STATIC_URL}}css/animate.css" rel="stylesheet">
+    
+	<!-- Custom styles CSS -->
+	<link href="{{STATIC_URL}}css/style.css" rel="stylesheet" media="screen">
+    
+    <script src="{{STATIC_URL}}js/modernizr.custom.js"></script>
+       
+</head>
+<body>
+
+	<!-- Preloader -->
+
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
+
+	<!-- Home start -->
+
+{% block home %}{% endblock %}
+
+	<!-- Home end -->
+{% block header %}{% endblock %}
+
+{% block services %}{% endblock %}
+	<!-- Navigation start -->
+
+	<!-- Navigation end -->
+
+    <!-- Services start -->
+
+	<!-- Services end -->
+    
+	<!-- Portfolio facial start -->
+
+	<section id="portfolio" class="pfblock">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">Cirugía Facial</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+							Porque tu rostro es tu carta de presentación.
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+            
+            
+            <div class="row">
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/frente.png" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Frente</span> <br>Frontoplastia Endoscópica</h2>
+                                <p>Rejuvenecimiento facial con mínimas .</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/parpados.jpg" alt="img02"/>
+                            <figcaption>
+                                <h2><span>Parpados</span> <br>Blefaroplastia</h2>
+                                <p>Eliminación de exceso de piel alrededor de los ojos.</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/orejas.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2> <span>Orejas</span> <br> Otoplastia </h2>
+                                <p>Mejora en el aspecto y forma de las orejas.</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/pomulos.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Pómulos y Labios</span> <br> Injertos Grasos </h2>
+                                <p>Disminuye las arrugas y aumenta el volumen.</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/mejillas.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2> <span>Mejillas</span> <br> Bichectomia</h2>
+                                <p>Disinución de volumen de las mejillas</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/nariz.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Nariz</span> <br> Rinoplastia</h2>
+                                <p>Resultado natural y armonioso.</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/menton.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Mentón y papada</span> <br> Mentoplastia </h2>
+                                <p>Mejora la forma y proyección del mentón.</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/cuello.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Cuello</span> <br> Cervicoplastia</h2>
+                                <p>Rejuvenece y define la armonia entre cuello y cara.</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/cabello.jpg" alt="imgCabello"/>
+                            <figcaption>
+                                <h2><span>Cabello</span> <br> Insertos capilares</h2>
+                                <p>Implantación de folículos pilosos en áreas visibles.</p>
+                            </figcaption>			
+                        </figure>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+
+		</div><!-- .contaier -->
+
+	</section>
+
+	<!-- Portfolio facial end -->
+    
+    <!-- Portfolio corporal start -->
+
+	<section id="portfolio1" class="pfblock">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">Cirugía Corporal</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+							No lo nieges, tu cuerpo lo merece
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+            
+            
+  
+            <div class="row">
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/abdomen.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>abdomen</span> <br>Abdominoplastia</h2>
+                                <p>Abdomen plano y cintura definida.</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/gluteos.jpg" alt="img02"/>
+                            <figcaption>
+                                <h2><span>gluteos</span> <br>Gluteoplastia</h2>
+                                <p>Levantamiento y mejoramiento de la forma.</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/lipo.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2> <span>Lipoescultura</span> <br> y Liposucción</h2>
+                                <p>Mejora tu silueta.</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/senos1.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Senos</span> <br> Mamoplastia de aumento</h2>
+                                <p>Aumenta el volumen y mejora la forma.</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/senos2.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2> <span>Senos</span> <br> Mamoplastica de reducción</h2>
+                                <p>Disinución de tamaño manteniendo una forma natural</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/nariz.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Senos</span> <br> Pexia mamaria</h2>
+                                <p>Levantamiento y rejuvenecimiento.</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+		</div><!-- .contaier -->
+
+	</section>
+
+	<!-- Portfolio corporal end -->
+
+<!-- Portfolio sin cirugía start -->
+
+	<section id="portfolio2" class="pfblock">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">Sin cirugía</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+							Ejecutamos procedimientos sin hacerte intervención quirúrgica
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+            
+            
+            <div class="row">
+                 <div class="row">
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/botox.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Botox</span> <br>Toxina Botulínica</h2>
+                                <p>Reduce arrugas y lineas de expresión.</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+
+                                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/acido.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2> <span>Ácido Hialurónico</span> <br> </h2>
+                                <p>Mejora, rellena y corrige arrugas y lineas de expresión</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12 col-sm-4 col-md-4">
+            
+                    <div class="grid wow zoomIn">
+                        <figure class="effect-bubba">
+                            <img src="{{STATIC_URL}}img/cirujanos/depilacion.jpg" alt="img01"/>
+                            <figcaption>
+                                <h2><span>Depilación</span> <br></h2>
+                                <p>Elimina los foliculos de zonas como bigote, axilas, bikini y piernas.</p>
+                            </figcaption>           
+                        </figure>
+                    </div>
+                    
+                </div>
+                
+                
+                
+            </div>
+
+
+		</div><!-- .contaier -->
+
+	</section>
+
+	<!-- Portfolio sin cirugía end -->
+
+   
+	<!-- CallToAction start -->
+
+	<section class="calltoaction">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-12 col-lg-12">
+					<h2 class="wow slideInRight" data-wow-delay=".1s">¿Tienes alguna pregunta?</h2>
+					<div class="calltoaction-decription wow slideInRight" data-wow-delay=".2s">
+						Citas, consultas o tarifas, No dudes en contactarnos.
+					</div>
+				</div>
+
+				<div class="col-md-12 col-lg-12 calltoaction-btn wow slideInRight" data-wow-delay=".3s">
+					<a href="#contact" class="btn btn-lg">Contáctanos</a>
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>
+
+	<!-- CallToAction end -->
+
+	<!-- Testimonials start -->
+
+	<section id="testimonials" class="pfblock pfblock-gray">
+
+		<div class="container">
+            
+            <div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header wow fadeInUp">
+						<h2 class="pfblock-title">Lo que nuestros clientes opinan</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+							Nuestra carta de presentación son nuestros clientes. Revisa lo que tienen por decir.
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+
+            <div class="row">
+
+			<div id="cbp-qtrotator" class="cbp-qtrotator">
+                <div class="cbp-qtcontent">
+                    <img src="{{STATIC_URL}}img/cirujanos/client-1.jpg" alt="client-1" />
+                    <blockquote>
+                      <p>Me hice una rinoplastia y terminé con años de vergüenza y baja autoestima. Obtuve más de lo que pedía y estoy muy contento con los resultados.</p>
+                      <footer>Carlos Hinestrosa</footer>
+                    </blockquote>
+                </div>
+                <div class="cbp-qtcontent">
+                    <img src="{{STATIC_URL}}img/cirujanos/client-2.jpg" alt="client-2" />
+                    <blockquote>
+                      <p>Durante décadas sufrí de sobrepeso severo y mi cuerpo estaba casi desfigurado. La lipoescultura que me hice fue lo mejor y el trato fue impresionante. Muchas gracias!</p>
+                      <footer>Diana Melgarejo</footer>
+                    </blockquote>
+                </div>
+
+            </div>		
+
+            </div><!-- .row -->
+
+					
+		</div><!-- .row -->
+	</section>
+
+	<!-- Testimonial end -->
+
+
+	<!-- Contact start -->
+
+	<section id="contact" class="pfblock">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<div class="pfblock-header">
+						<h2 class="pfblock-title">Contáctanos</h2>
+						<div class="pfblock-line"></div>
+						<div class="pfblock-subtitle">
+							No importa si sólo quieres saludar. Queremos escucharte, déjanos tu mensaje.
+						</div>
+					</div>
+
+				</div>
+
+			</div><!-- .row -->
+
+			<div class="row">
+
+				<div class="col-sm-6 col-sm-offset-3">
+
+					<form id="contact-form" role="form">
+						<div class="ajax-hidden">
+							<div class="form-group wow fadeInUp">
+								<label class="sr-only" for="c_name">Nombre...</label>
+								<input type="text" id="c_name" class="form-control" name="c_name" placeholder="Nombre...">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".1s">
+								<label class="sr-only" for="c_email">Email...</label>
+								<input type="email" id="c_email" class="form-control" name="c_email" placeholder="Email...">
+							</div>
+
+							<div class="form-group wow fadeInUp" data-wow-delay=".2s">
+								<textarea class="form-control" id="c_message" name="c_message" rows="7" placeholder="Tu mensaje..."></textarea>
+							</div>
+
+							<button type="submit" class="btn btn-lg btn-block wow fadeInUp" data-wow-delay=".3s">Enviar mensaje</button>
+						</div>
+						<div class="ajax-response"></div>
+					</form>
+
+				</div>
+
+			</div><!-- .row -->
+		</div><!-- .container -->
+	</section>
+
+	<!-- Contact end -->
+
+	<!-- Footer start -->
+
+	{% block footer %}{% endblock %}
+
+	<!-- Footer end -->
+
+	<!-- Scroll to top -->
+
+	<div class="scroll-up">
+		<a href="#home"><i class="fa fa-angle-up"></i></a>
+	</div>
+    
+    <!-- Scroll to top end-->
+
+	<!-- Javascript files -->
+
+	<script src="{{STATIC_URL}}js/jquery-1.11.1.min.js"></script>
+	<script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+	<script src="{{STATIC_URL}}js/jquery.parallax-1.1.3.js"></script>
+	<script src="{{STATIC_URL}}js/imagesloaded.pkgd.js"></script>
+	<script src="{{STATIC_URL}}js/jquery.sticky.js"></script>
+	<script src="{{STATIC_URL}}js/smoothscroll.js"></script>
+	<script src="{{STATIC_URL}}js/wow.min.js"></script>
+    <script src="{{STATIC_URL}}js/jquery.easypiechart.js"></script>
+    <script src="{{STATIC_URL}}js/waypoints.min.js"></script>
+    <script src="{{STATIC_URL}}js/jquery.cbpQTRotator.js"></script>
+	<script src="{{STATIC_URL}}js/custom.js"></script>
+
+    
+
+
+</body>
+</html>
