@@ -188,19 +188,20 @@ def emails_spa(request):
 def emails_cirujano(request):
 	i = 0
 	for idx,cirujano in enumerate(Cirujano.objects.all()):
-		if idx <2:
+		if idx <9:
 			if cirujano.correo_enviado == "NO":
 				cirujano.correo_enviado = "SI"
 				cirujano.save()
 				nombre_entero = cirujano.nombre
-				context = {"nombre_entero":nombre_entero, "link":cirujano.slug, "nombre":cirujano.nombre}
+				h1 = "Dr. " + cirujano.nombre
+				context = {"nombre":cirujano.nombre, "link":cirujano.slug, "h1":h1}
 				html_content = render_to_string('cirujano-email.html', context)
 				text_content = render_to_string('cirujano-email.txt', context)
 				lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
 				#if cirujano.email != "NO":
 				#	lista_correos.append(spa.email)
 				
-				sujeto = cirujano.nombre + " - Promocion"
+				sujeto = "Dr. " + cirujano.nombre + " - Promocion"
 				subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'sebastian.macias@joinandenjoy.co', lista_correos
 
 				print lista_correos
@@ -255,6 +256,7 @@ def generate_cirujano(request):
 				la_url = u'%s'%la_url
 				la_url = unicodedata.normalize('NFKD', la_url).encode('ascii','ignore')
 				random_index = randint(0,9999)
+				la_url = la_url.lower()
 				cirujano.slug = la_url + "-"+ "%d"%random_index
 				#ingresa el spa a la base de datos
 				cirujano.save()  
