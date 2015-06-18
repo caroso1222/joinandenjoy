@@ -198,8 +198,8 @@ def emails_cirujano(request):
 				html_content = render_to_string('cirujano-email.html', context)
 				text_content = render_to_string('cirujano-email.txt', context)
 				lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
-				#if cirujano.email != "NO":
-				#	lista_correos.append(spa.email)
+				if cirujano.email != "NO":
+					lista_correos.append(cirujano.email)
 				
 				sujeto = "Dr. " + cirujano.nombre + " - Promocion"
 				subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'sebastian.macias@joinandenjoy.co', lista_correos
