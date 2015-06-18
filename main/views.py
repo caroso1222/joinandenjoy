@@ -211,7 +211,7 @@ def emails_cirujano(request):
 				msg.mixed_subtype = 'related'
 
 				for f in ['Mock-up.jpg']:
-					elpath = BASE_DIR + "/main/templates/static/img/Mock-up.jpg"
+					elpath = BASE_DIR + "/main/templates/static/img/Mock-up-medico.jpg"
 					fp = open(elpath,  'rb')
 					msg_img = MIMEImage(fp.read())
 					fp.close()
