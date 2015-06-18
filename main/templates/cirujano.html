@@ -1,18 +1,28 @@
-	<!-- Home start -->
-{% extends "base-cirujanos.html" %}
+	<!-- Esta base viene desde el view.py -->
+{% extends base %}
+
 {% block titulo %} {{nombre}} {% endblock %}
 
 {% block home %}
-    <section id="home" class="pfblock-image screen-height">
+    <section id="home2" class="pfblock-image screen-height">
         <div class="home-overlay"></div>
         <div class="intro">
             <div class="start" style="font-family: Raleway, "Times New Roman", Times, sans-serif;"></div>
-            <h1>Libera tu belleza</h1>
-            <br>
-            <h2> Dr. {{nombre}}</h2>
-            <h2></h2>
-            <div class="start">Cirujano plástico</div>
-            <h3>Experiencia, seguridad y calidad.</h3>
+            {% if idioma == 'ES'%}
+                <h1>Libera tu belleza</h1>
+                <br>
+                <h2> Dr. {{nombre}}</h2>
+                <h2></h2>
+                <div class="start">Cirujano plástico</div>
+                <h3>Experiencia, seguridad y calidad.</h3>
+            {% else %}
+                <h1>Unleash the beauty</h1>
+                <br>
+                <h2> Dr. {{nombre}}</h2>
+                <h2></h2>
+                <div class="start">Plastic surgeon</div>
+                <h3>Experience, ensurance and quality</h3>
+            {% endif %}
         </div>
 
         <a href="#services">
@@ -41,17 +51,36 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html">Dr. Sebatian Macias</a>
+					<a class="navbar-brand" href="index.html">Dr. {{nombre}}</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="custom-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#services">Nosotros</a></li>
-						<li><a href="#portfolio">Cirugía Facial</a></li>
-                        <li><a href="#portfolio1">Cirugía Corporal</a></li>
-                        <li><a href="#portfolio2">Sin cirugía</a></li>
-						<li><a href="#testimonials">Testimonios</a></li>
-						<li><a href="#contact">Contacto</a></li>
+                        {% if idioma == 'ES'%}
+    						<li><a href="#services">Nosotros</a></li>
+    						<li><a href="#portfolio">Cirugía Facial</a></li>
+                            <li><a href="#portfolio1">Cirugía Corporal</a></li>
+                            <li><a href="#portfolio2">Sin cirugía</a></li>
+    						<li><a href="#testimonials">Testimonios</a></li>
+    						<li><a href="#contact">Contacto</a></li>
+                        {% else %}
+                            <li><a href="#services">About</a></li>
+                            <li><a href="#portfolio">Facial Surgery</a></li>
+                            <li><a href="#portfolio1">Body Surgery</a></li>
+                            <li><a href="#portfolio2">Without Surgery</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        {% endif %}
+                        <li class = "form-ingles"><form method="post" role = "form">{% csrf_token %}
+                            <input type="hidden" value="EN" name="accion" />
+                            <input type = "submit" class = "btn btn-primary"  value = "EN"></input>
+                        </form>
+                        </li>
+                        <li class = "form-ingles"><form method="post" role = "form">{% csrf_token %}
+                            <input type="hidden" value="ES" name="accion" />
+                            <input type = "submit" class = "btn btn-primary"  value = "ES"></input>
+                        </form>
+                        </li>
 					</ul>
 				</div>
 
@@ -72,8 +101,9 @@
 				<div class="col-sm-6 col-sm-offset-3">
 
 					<div class="pfblock-header wow fadeInUp">
-						<h2 class="pfblock-title">Dr. Sebastian Macias</h2>
+						<h2 class="pfblock-title">Dr. {{nombre}}</h2>
 						<div class="pfblock-line"></div>
+                        {% if idioma == 'ES'%}
 						<div class="pfblock-subtitle">
 							Su amplia experiencia en técnicas en cirugía plástica y reconstructiva la adquirió en importantes instituciones de Colombia como: la Clínica San Pedro Claver, Clínica Mandalay, Urgencias Cruz Rojas SAMU, Director Médico de la Institución Aesthetic Hair Surgery, entre otras.
 							<br>
@@ -83,6 +113,17 @@
 							<br>
 							Su larga experiencia, excelentes resultados y compromiso con los pacientes  son unos de los factores que le han dado su reconocimiento en Colombia y en el mundo.
 						</div>
+                        {% else %}
+                        <div class="pfblock-subtitle">
+                            His extensive experience in plastic and reconstructive surgery was acquired in some of the most renowed Colombian institutions such as: San Pedro Claver Clinic, Mandalay Clinic, Red Cross Emergency, head of the Aesthetic Hair Surgery Institution, among others.
+                            <br>
+                            <br>
+                            Graduted in Paris from Anti-aging medicine. Member of the Plastic Surgery Colombian Society, the Plastic Surgery Ibero Latin American Federation and the Plastic Reconstructive Aesthetic Society -IPRAS-.
+                            <br>
+                            <br>
+                            His excellent results and great commitment with his patients are one of the factors that have given him great recongnition in Colombia and around the globe.
+                        </div>
+                        {% endif %}
 					</div>
 
 				</div>
@@ -98,10 +139,17 @@
 							<span class="icon-badge"></span>
 						</div>
 						<div class="iconbox-text">
+                            {% if idioma == 'ES'%}
 							<h3 class="iconbox-title">Equipo médico</h3>
 							<div class="iconbox-desc">
 								El mejor equipo de anestesiólogos, nutricionistas, esteticistas completan el equipo.
 							</div>
+                            {% else %}
+                            <h3 class="iconbox-title">Medical team</h3>
+                            <div class="iconbox-desc">
+                                Our elite team is made up of anesthesiologist, nutritionists and beauticians.
+                            </div>
+                            {% endif %}
 						</div>
 					</div>
 
@@ -114,10 +162,17 @@
 							<span class="icon-puzzle"></span>
 						</div>
 						<div class="iconbox-text">
+                            {% if idioma == 'ES'%}
 							<h3 class="iconbox-title">Instalaciones</h3>
 							<div class="iconbox-desc">
 								Contamos con salas de cirugía de última generación y salas de recuperación y observación
 							</div>
+                            {% else %}
+                            <h3 class="iconbox-title">Facilities</h3>
+                            <div class="iconbox-desc">
+                                We have operating, recovery and observation rooms.
+                            </div>
+                            {% endif %}
 						</div>
 					</div>
 
@@ -130,10 +185,17 @@
 							<span class="icon-vector"></span>
 						</div>
 						<div class="iconbox-text">
+                            {% if idioma == 'ES'%}
 							<h3 class="iconbox-title">Alta tecnología</h3>
 							<div class="iconbox-desc">
 								Nuestros equipos de última generación garantizan la calidad, seguridad y efectividad de nuestros procedimientos.
 							</div>
+                            {% else %}
+                            <h3 class="iconbox-title">High techonology</h3>
+                            <div class="iconbox-desc">
+                                Our cutting-edge high tech equipment ensure quality, security and effectiveness of our procedures.
+                            </div>
+                            {% endif %}
 						</div>
 					</div>
 
@@ -146,10 +208,17 @@
 							<span class="icon-graduation"></span>
 						</div>
 						<div class="iconbox-text">
+                            {% if idioma == 'ES'%}
 							<h3 class="iconbox-title">Hoja de vida</h3>
 							<div class="iconbox-desc">
 								Estudios, capacitaciones y congresos soportan toda su experiencia profesional.
 							</div>
+                            {% else %}
+                            <h3 class="iconbox-title">Resume</h3>
+                            <div class="iconbox-desc">
+                                Studies, training and conferences support the professional experience.
+                            </div>
+                            {% endif %}
 						</div>
 					</div>
 
@@ -176,7 +245,11 @@
 					</ul>
 
 					<p class="heart">
-                        Trabajamos con el <span class="fa fa-heart fa-2x animated pulse"></span> en {{ciudad}}
+                        {% if idioma == 'ES'%}
+                            Trabajamos con el <span class="fa fa-heart fa-2x animated pulse"></span>
+                        {% else %}
+                            We work with our <span class="fa fa-heart fa-2x animated pulse"></span>
+                        {% endif %}
                     </p>
                     <p class="copyright">
                         {{nombre}} © 2015 

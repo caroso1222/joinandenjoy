@@ -179,7 +179,7 @@ textarea.form-control {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-size: 13px;
-	padding: 8px 26px;
+	/*padding: 8px 26px;*/
 	border: 0;
 }
 
@@ -345,6 +345,19 @@ textarea.form-control {
 
 #home {
 	background: url(../img/spa/cover.jpg);
+	background-color: #222;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+		 -o-background-size: cover;
+			background-size: cover;
+	padding: 0;
+}
+
+#home2 {
+	background: url(../img/cirujanos/cover.jpg);
 	background-color: #222;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -970,3 +983,20 @@ figure.effect-bubba:hover p {
 
 }
 
+.form-ingles{
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header .btn-primary{
+	background-color: transparent;
+	color: #999;
+	font-size: 12px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header .btn-primary:hover{
+	color: #000;
+}

@@ -84,7 +84,13 @@ def ver_cirujano(request, slug):
 	email = cirujano.email
 	h2_arriba = cirujano.h2_arriba
 	h2_abajo = cirujano.h2_abajo
-	context = {"h2_arriba":h2_arriba,"h2_abajo":h2_abajo,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email}
+	if request.method == 'POST':
+		if request.POST['accion'] == 'EN':
+			context = {"h2_arriba":h2_arriba,"h2_abajo":h2_abajo,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email,"idioma":"EN", "base":"base-cirujanos-en.html"}
+		else:
+			context = {"h2_arriba":h2_arriba,"h2_abajo":h2_abajo,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email,"idioma":"ES", "base":"base-cirujanos-es.html"}
+	else:
+		context = {"h2_arriba":h2_arriba,"h2_abajo":h2_abajo,"nombre":nombre,"telefono":telefono,"direccion":direccion,"ciudad":ciudad,"email":email,"idioma":"ES", "base":"base-cirujanos-es.html"}
 	return render(request,'cirujano.html', context)
 
 def generate_spa(request):
@@ -175,6 +181,44 @@ def emails_spa(request):
 				msg.attach(msg_img)
 
 			msg.send()
+
+	context = {"h1_arriba":"h1_arriba"}
+	return render(request,'index.html',context)
+
+def emails_cirujano(request):
+	i = 0
+	for idx,cirujano in enumerate(Cirujano.objects.all()):
+		if idx <2:
+			if cirujano.correo_enviado == "NO":
+				cirujano.correo_enviado = "SI"
+				cirujano.save()
+				nombre_entero = cirujano.nombre
+				context = {"nombre_entero":nombre_entero, "link":cirujano.slug, "nombre":cirujano.nombre}
+				html_content = render_to_string('cirujano-email.html', context)
+				text_content = render_to_string('cirujano-email.txt', context)
+				lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
+				#if cirujano.email != "NO":
+				#	lista_correos.append(spa.email)
+				
+				sujeto = cirujano.nombre + " - Promocion"
+				subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'sebastian.macias@joinandenjoy.co', lista_correos
+
+				print lista_correos
+
+				msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+
+				msg.attach_alternative(html_content, "text/html")
+				msg.mixed_subtype = 'related'
+
+				for f in ['Mock-up.jpg']:
+					elpath = BASE_DIR + "/main/templates/static/img/Mock-up.jpg"
+					fp = open(elpath,  'rb')
+					msg_img = MIMEImage(fp.read())
+					fp.close()
+					msg_img.add_header('Content-ID', '<{}>'.format(f))
+					msg.attach(msg_img)
+
+				msg.send()
 
 	context = {"h1_arriba":"h1_arriba"}
 	return render(request,'index.html',context)
