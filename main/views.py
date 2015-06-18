@@ -24,8 +24,8 @@ from django.template import Context
 from email.MIMEImage import MIMEImage
 
 
-ENVIAR_A_FOUNDERS = "NO"
-NUMERO_DE_PROPUESTAS = 60
+ENVIAR_A_FOUNDERS = "SI"
+NUMERO_DE_PROPUESTAS = 70
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
@@ -205,13 +205,13 @@ def emails_cirujano(request):
 				if ENVIAR_A_FOUNDERS == "SI":
 					lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
 				else:
-					lista_correos = ['carlos.roso@joinandenjoy.co']
+					lista_correos = ['sebastian.macias@joinandenjoy.co']
 
 				if cirujano.email != "NO":
 					lista_correos.append(cirujano.email)
 				
 				sujeto = "Dr. " + cirujano.nombre + " - Promocion"
-				subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'sebastian.macias@joinandenjoy.co', lista_correos
+				subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'carlos.roso@joinandenjoy.co', lista_correos
 
 				print lista_correos
 
