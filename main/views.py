@@ -24,8 +24,8 @@ from django.template import Context
 from email.MIMEImage import MIMEImage
 
 
-ENVIAR_A_FOUNDERS = "SI"
-NUMERO_DE_PROPUESTAS = 70
+ENVIAR_A_FOUNDERS = "NO"
+NUMERO_DE_PROPUESTAS = 120
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
