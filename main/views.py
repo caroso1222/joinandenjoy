@@ -24,6 +24,9 @@ from django.template import Context
 from email.MIMEImage import MIMEImage
 
 
+ENVIAR_A_FOUNDERS = "SI"
+NUMERO_DE_PROPUESTAS = 10
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
 BASE_DIR_SPAS = BASE_DIR + "/main/templates/spas/"
@@ -188,7 +191,7 @@ def emails_spa(request):
 def emails_cirujano(request):
 	i = 0
 	for idx,cirujano in enumerate(Cirujano.objects.all()):
-		if idx <9:
+		if idx < NUMERO_DE_PROPUESTAS:
 			if cirujano.correo_enviado == "NO":
 				cirujano.correo_enviado = "SI"
 				cirujano.save()
@@ -197,7 +200,13 @@ def emails_cirujano(request):
 				context = {"nombre":cirujano.nombre, "link":cirujano.slug, "h1":h1}
 				html_content = render_to_string('cirujano-email.html', context)
 				text_content = render_to_string('cirujano-email.txt', context)
-				lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
+				lista_correos = []
+				
+				if ENVIAR_A_FOUNDERS == "SI":
+					lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
+				else:
+					lista_correos = ['carlos.roso@joinandenjoy.co']
+
 				if cirujano.email != "NO":
 					lista_correos.append(cirujano.email)
 				
