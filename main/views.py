@@ -62,7 +62,7 @@ def home(request):
 		context = {"enviado":"NO","formulario":formulario}
 		request.session['mensaje_enviado'] = "NO"
 	for idx, cirujano in enumerate(Cirujano.objects.all()):
-		print "%d %s %s"%(idx, cirujano.nombre, cirujano.apellido)
+		#print "%d %s %s"%(idx, cirujano.nombre, cirujano.apellido)
 		if idx > 220:
 			cirujano.email = "NO"
 			cirujano.save()
