@@ -25,7 +25,7 @@ from email.MIMEImage import MIMEImage
 
 
 ENVIAR_A_FOUNDERS = "NO"
-NUMERO_DE_PROPUESTAS = 350
+NUMERO_DE_PROPUESTAS = 350 #220
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
@@ -63,6 +63,9 @@ def home(request):
 		request.session['mensaje_enviado'] = "NO"
 	for idx, cirujano in enumerate(Cirujano.objects.all()):
 		print "%d %s %s"%(idx, cirujano.nombre, cirujano.apellido)
+		if idx > 220:
+			cirujano.email = "NO"
+			cirujano.save()
 
 	return render(request,'index.html',context)
 
