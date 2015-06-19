@@ -63,8 +63,8 @@ def home(request):
 		request.session['mensaje_enviado'] = "NO"
 	for idx, cirujano in enumerate(Cirujano.objects.all()):
 		#print "%d %s %s"%(idx, cirujano.nombre, cirujano.apellido)
-		if idx > 220:
-			cirujano.email = "NO"
+		if idx < 350:
+			cirujano.email = "SI"
 			cirujano.save()
 
 	return render(request,'index.html',context)
