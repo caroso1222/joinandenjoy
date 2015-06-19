@@ -9,6 +9,11 @@ class SpaAdmin(admin.ModelAdmin):
 
 class CirujanoAdmin(admin.ModelAdmin):
 	prepopulated_fields = {'slug': ('nombre',)}
+	list_display = ['nombre','apellido']
+
+	class Meta:
+		model = Cirujano
+		ordering = ['nombre']
 
 admin.site.register(Spa,SpaAdmin)
 admin.site.register(Cirujano,CirujanoAdmin)
