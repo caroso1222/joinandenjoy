@@ -25,7 +25,8 @@ from email.MIMEImage import MIMEImage
 
 
 ENVIAR_A_FOUNDERS = "NO"
-NUMERO_DE_PROPUESTAS = 490 #220
+NUMERO_DE_PROPUESTAS_ENVIADAS = 400 #220
+NUMERO_DE_PROPUESTAS_A_ENVIAR = 430
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
@@ -196,7 +197,7 @@ def emails_spa(request):
 def emails_cirujano(request):
 	i = 0
 	for idx,cirujano in enumerate(Cirujano.objects.all()):
-		if idx < NUMERO_DE_PROPUESTAS:
+		if idx > NUMERO_DE_PROPUESTAS_ENVIADAS and idx < NUMERO_DE_PROPUESTAS_A_ENVIAR:
 			if cirujano.correo_enviado == "NO":
 				cirujano.correo_enviado = "SI"
 				cirujano.save()
