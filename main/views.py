@@ -216,7 +216,8 @@ def emails_cirujano(request):
 				if cirujano.email != "NO":
 					lista_correos.append(cirujano.email)
 				
-				sujeto = "Desarrollo de website del cirujano " + cirujano.nombre
+				#sujeto = "Desarrollo de website del cirujano " + cirujano.nombre
+				sujeto = "Dr. " + cirujano.nombre + " - Promocion"
 				subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'carlos.roso@joinandenjoy.co', lista_correos
 
 
