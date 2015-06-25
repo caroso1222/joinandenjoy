@@ -26,7 +26,7 @@ from email.MIMEImage import MIMEImage
 
 ENVIAR_A_FOUNDERS = "NO"
 NUMERO_DE_PROPUESTAS_ENVIADAS = 400 #220
-NUMERO_DE_PROPUESTAS_A_ENVIAR = 500
+NUMERO_DE_PROPUESTAS_A_ENVIAR = 540
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
