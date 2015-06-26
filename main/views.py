@@ -26,7 +26,7 @@ from email.MIMEImage import MIMEImage
 
 ENVIAR_A_FOUNDERS = "NO"
 NUMERO_DE_PROPUESTAS_ENVIADAS = 400 #220
-NUMERO_DE_PROPUESTAS_A_ENVIAR = 610
+NUMERO_DE_PROPUESTAS_A_ENVIAR = 580
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
@@ -216,7 +216,8 @@ def emails_cirujano(request):
 				if cirujano.email != "NO":
 					lista_correos.append(cirujano.email)
 				
-				sujeto = "Desarrollo de website del cirujano " + cirujano.nombre
+				#sujeto = "Desarrollo de website del cirujano " + cirujano.nombre
+				sujeto = "Dr. " + cirujano.nombre + " - Promocion"
 				subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'carlos.roso@joinandenjoy.co', lista_correos
 
 
