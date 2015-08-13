@@ -25,7 +25,7 @@ from email.MIMEImage import MIMEImage
 
 
 ENVIAR_A_FOUNDERS = "NO"
-NUMERO_DE_PROPUESTAS_ENVIADAS = 400 #220
+NUMERO_DE_PROPUESTAS_ENVIADAS = 610 #220
 NUMERO_DE_PROPUESTAS_A_ENVIAR = 610
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -209,12 +209,12 @@ def emails_cirujano(request):
 				lista_correos = []
 
 				if ENVIAR_A_FOUNDERS == "SI":
-					lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
+					#lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
 				else:
-					lista_correos = ['sebastian.macias@joinandenjoy.co']
+					#lista_correos = ['sebastian.macias@joinandenjoy.co']
 
 				if cirujano.email != "NO":
-					lista_correos.append(cirujano.email)
+					#lista_correos.append(cirujano.email)
 				
 				#sujeto = "Desarrollo de website del cirujano " + cirujano.nombre
 				sujeto = "Dr. " + cirujano.nombre + " - Promocion"
