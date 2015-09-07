@@ -210,11 +210,14 @@ def emails_cirujano(request):
 
 				if ENVIAR_A_FOUNDERS == "SI":
 					#lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
+					pass
 				else:
 					#lista_correos = ['sebastian.macias@joinandenjoy.co']
+					pass
 
 				if cirujano.email != "NO":
 					#lista_correos.append(cirujano.email)
+					pass
 				
 				#sujeto = "Desarrollo de website del cirujano " + cirujano.nombre
 				sujeto = "Dr. " + cirujano.nombre + " - Promocion"
