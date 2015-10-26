@@ -25,8 +25,8 @@ from email.MIMEImage import MIMEImage
 
 
 ENVIAR_A_FOUNDERS = "NO"
-NUMERO_DE_PROPUESTAS_ENVIADAS = 610 #220
-NUMERO_DE_PROPUESTAS_A_ENVIAR = 610
+NUMERO_DE_PROPUESTAS_ENVIADAS = 0 #220
+NUMERO_DE_PROPUESTAS_A_ENVIAR = 10
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_spas = BASE_DIR + "/csv-files/Clientes-SPA.csv"
@@ -241,6 +241,10 @@ def emails_cirujano(request):
 
 	context = {"h1_arriba":"h1_arriba"}
 	return render(request,'index.html',context)
+
+def urls_cirujanos(request):
+	context = {"cirujanos":Cirujano.objects.all().order_by("ciudad")}
+	return render(request,'urls_cirujanos.html',context)
 
 def generate_cirujano(request):
 	filename = csv_cirujanos

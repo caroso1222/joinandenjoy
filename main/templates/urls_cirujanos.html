@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="shortcut icon" href="{{STATIC_URL}}ico/favicon.ico">
+
+	<title>Estudio creativo</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="{{STATIC_URL}}css/bootstrap.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="{{STATIC_URL}}css/style.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}css/font-awesome.min.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}js/fancybox/jquery.fancybox.css" rel="stylesheet" />
+
+
+	<!-- Just for debugging purposes. Don't actually copy this line! -->
+	<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" id="contenedor-urls">
+
+  	<!-- Menu -->
+  	<br>
+  	<br>
+  	<div class = "container contenedor-urls">
+  		<table class="table">
+  			<thead>
+  				<tr>
+  					<th>Nombre</th>
+  					<th>Ciudad</th>
+  					<th>URL</th>
+  				</tr>
+  			</thead>
+  			<tbody>
+  				{%for cirujano in cirujanos%}
+  				<tr>
+  					<td>{{cirujano.h2_arriba}} </td>
+  					<td>{{cirujano.ciudad}}</td>
+  					<td><a href="/p/cirujano/{{cirujano.slug}}" target = "_blank">{{cirujano.slug}}</a> </td>
+  				</tr>
+  				{% endfor %}
+  			</tbody>
+  		</table>
+  	</div>
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{STATIC_URL}}js/classie.js"></script>
+    <script src="{{STATIC_URL}}js/bootstrap.min.js"></script>
+    <script src="{{STATIC_URL}}js/smoothscroll.js"></script>
+    <script src="{{STATIC_URL}}js/jquery.stellar.min.js"></script>
+    <script src="{{STATIC_URL}}js/fancybox/jquery.fancybox.js"></script>    
+    <script src="{{STATIC_URL}}js/main.js"></script>
+    <script>
+    $(function(){
+    	$.stellar({
+    		horizontalScrolling: false,
+    		verticalOffset: 40
+    	});
+    });
+    </script>
+
+    <script type="text/javascript">
+    $(function() {
+        //    fancybox
+        jQuery(".fancybox").fancybox();
+    });
+    </script>
+
+</body>
+</html>

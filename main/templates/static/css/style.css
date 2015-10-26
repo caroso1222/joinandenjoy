@@ -499,3 +499,19 @@ h1, h2, h3, h4, h5, h6 {
 .desc {
 	margin-top: 25px;
 }
+
+#contenedor-urls{
+	background-color: #eeeeee;
+}
+
+.contenedor-urls{
+	background-color: white;
+	border-radius: 4px;
+	padding-top: 15px;
+	padding-left: 30px;
+	padding-right: 30px;
+box-shadow: 0px 0px 6px 0px rgba(119, 119, 119, 0.4);
+-moz-box-shadow: 0px 0px 6px 0px rgba(119, 119, 119, 0.4);
+-webkit-box-shadow: 0px 0px 6px 0px rgba(119, 119, 119, 0.4);
+
+}
