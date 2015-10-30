@@ -268,7 +268,7 @@ def enviar_mail_cirujano(slug):
 			lista_correos.append(cirujano.email)
 			pass
 				
-		sujeto = "Dr. " + cirujano.nombre + " - Promocion"
+		sujeto = "Dr. " + cirujano.nombre
 		#subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'carlos.roso@joinandenjoy.co', lista_correos
 		subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'comercial@jecs.co', lista_correos
 
@@ -338,6 +338,10 @@ def generate_cirujano(request):
 				cirujano.slug = la_url + "-"+ "%d"%random_index
 				#ingresa el spa a la base de datos
 				cirujano.save()  
+			else:
+				print "hola me meti"
+				cirujano.email = row[7].strip()
+				cirujano.save()
 	
 	print "Cirujanos actualizados"
 	context = {"h1_arriba":"h1_arriba"}
