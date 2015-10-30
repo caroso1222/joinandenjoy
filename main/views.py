@@ -164,10 +164,8 @@ def emails_spa(request):
 			lista_correos = ['ce.roso398@gmail.com']
 			if spa.email != "NO":
 				lista_correos.append(spa.email)
-				print "hoa"
 			if spa.email2 != "NO":
 				lista_correos.append(spa.email2)
-				print "hoa"
 			if spa.facebook != "NO":
 				lista_correos.append('sebastian.macias.y@gmail.com')
 			
@@ -229,7 +227,7 @@ def emails_cirujano(request):
 				msg.attach_alternative(html_content, "text/html")
 				msg.mixed_subtype = 'related'
 
-				for f in ['Mock-up.jpg']:
+				for f in ['Mock-up-1.jpg']:
 					elpath = BASE_DIR + "/main/templates/static/img/Mock-up-medico.jpg"
 					fp = open(elpath,  'rb')
 					msg_img = MIMEImage(fp.read())
@@ -260,9 +258,6 @@ def enviar_mail_cirujano(slug):
 		if ENVIAR_A_FOUNDERS == "SI":
 			lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
 			pass
-		else:
-			lista_correos = ['sebastian.macias@joinandenjoy.co','comercial@jecs.co']
-			pass
 
 		if cirujano.email != "NO":
 			lista_correos.append(cirujano.email)
@@ -273,12 +268,12 @@ def enviar_mail_cirujano(slug):
 		subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'comercial@jecs.co', lista_correos
 
 
-		msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+		msg = EmailMultiAlternatives(subject, text_content, from_email, to, bcc=['sebastian.macias@joinandenjoy.co','comercial@jecs.co'])
 
 		msg.attach_alternative(html_content, "text/html")
 		msg.mixed_subtype = 'related'
 
-		for f in ['Mock-up.jpg']:
+		for f in ['Mock-up-1.jpg']:
 			elpath = BASE_DIR + "/main/templates/static/img/Mock-up-medico.jpg"
 			fp = open(elpath,  'rb')
 			msg_img = MIMEImage(fp.read())
@@ -339,7 +334,6 @@ def generate_cirujano(request):
 				#ingresa el spa a la base de datos
 				cirujano.save()  
 			else:
-				print "hola me meti"
 				cirujano.email = row[7].strip()
 				cirujano.save()
 	
