@@ -261,7 +261,7 @@ def enviar_mail_cirujano(slug):
 			lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
 			pass
 		else:
-			lista_correos = ['sebastian.macias@joinandenjoy.co']
+			lista_correos = ['sebastian.macias@joinandenjoy.co','comercial@jecs.co']
 			pass
 
 		if cirujano.email != "NO":
