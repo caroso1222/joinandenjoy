@@ -515,3 +515,53 @@ box-shadow: 0px 0px 6px 0px rgba(119, 119, 119, 0.4);
 -webkit-box-shadow: 0px 0px 6px 0px rgba(119, 119, 119, 0.4);
 
 }
+
+.icono-mail{
+	font-size: 17px;
+	color: #2ecc71;
+}
+
+.btn-mail{
+	background-color: #2ecc71;
+	border:none;
+
+}
+
+.icono-mail-vacio{
+	font-size: 17px;
+	color: #888888;
+}
+
+.btn-mail-vacio{
+	background-color: white;
+	border:1px solid #aaaaaa;
+}
+
+.btn-mail-vacio:hover{
+	background-color: #2ecc71;
+	border:none;
+}
+
+.btn-mail-vacio:hover .icono-mail-vacio{
+	color: white;
+}
+
+.botones-td{
+	text-align: center;
+}
+
+.span-correo-enviado{
+	color: white;
+	background-color: #2ecc71;
+	border-radius: 4px;
+	font-weight: 600;
+	padding-top: 7px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 7px;
+	box-shadow: 0px 0px 6px 0px rgba(119, 119, 119, 0.4);
+	-moz-box-shadow: 0px 0px 6px 0px rgba(119, 119, 119, 0.4);
+	-webkit-box-shadow: 0px 0px 6px 0px rgba(119, 119, 119, 0.4);
+	margin-bottom: 20px;
+	text-align: center;
+}

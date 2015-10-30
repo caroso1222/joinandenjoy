@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^generate_cirujano/', views.generate_cirujano, name ="generate_cirujano"),
     url(r'^emails_spa/', views.emails_spa, name ="emails_spa"),
     url(r'^emails_cirujano/', views.home, name ="emails_cirujano"),
+    url(r'^enviar_mail_cirujano/', views.home, name ="enviar_mail_cirujano"),
     url(r'^urls_cirujanos/', views.urls_cirujanos, name ="urls_cirujanos"),
     url(r'^adriana-barreneche-450679/', TemplateView.as_view(template_name="adriana-barreneche.html")),
     url(r'^armonia-naturall-spa-403921/', TemplateView.as_view(template_name="armonia-naturall-spa.html")),

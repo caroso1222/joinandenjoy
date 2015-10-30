@@ -242,8 +242,64 @@ def emails_cirujano(request):
 	context = {"h1_arriba":"h1_arriba"}
 	return render(request,'index.html',context)
 
+def enviar_mail_cirujano(slug):
+	cirujano = Cirujano.objects.get(slug = slug)
+	estado = "NO ENVIADO"
+	if cirujano.correo_enviado == "NO":
+		estado = "ENVIADO"
+		cirujano.correo_enviado = "SI"
+		cirujano.save()
+
+		nombre_entero = cirujano.nombre
+		h1 = "Dr. " + cirujano.nombre
+		context = {"nombre":cirujano.nombre, "link":cirujano.slug, "h1":h1}
+		html_content = render_to_string('cirujano-email.html', context)
+		text_content = render_to_string('cirujano-email.txt', context)
+		lista_correos = []
+
+		if ENVIAR_A_FOUNDERS == "SI":
+			lista_correos = ['ce.roso398@gmail.com','sebastian.macias.y@gmail.com']
+			pass
+		else:
+			lista_correos = ['sebastian.macias@joinandenjoy.co']
+			pass
+
+		if cirujano.email != "NO":
+			lista_correos.append(cirujano.email)
+			pass
+				
+		sujeto = "Dr. " + cirujano.nombre + " - Promocion"
+		#subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'carlos.roso@joinandenjoy.co', lista_correos
+		subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'comercial@jecs.co', lista_correos
+
+
+		msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+
+		msg.attach_alternative(html_content, "text/html")
+		msg.mixed_subtype = 'related'
+
+		for f in ['Mock-up.jpg']:
+			elpath = BASE_DIR + "/main/templates/static/img/Mock-up-medico.jpg"
+			fp = open(elpath,  'rb')
+			msg_img = MIMEImage(fp.read())
+			fp.close()
+			msg_img.add_header('Content-ID', '<{}>'.format(f))
+			msg.attach(msg_img)
+
+		msg.send()
+
+	return estado
+
+
 def urls_cirujanos(request):
-	context = {"cirujanos":Cirujano.objects.all().order_by("ciudad")}
+	context = {"2",}
+	if request.method == "POST":
+		slug = request.POST["slug"]
+		estado = enviar_mail_cirujano(slug)
+		context = {"estado":estado,"cirujanos":Cirujano.objects.all().order_by("ciudad")}
+	else:
+		context = {"estado":"nada","cirujanos":Cirujano.objects.all().order_by("ciudad")}
+
 	return render(request,'urls_cirujanos.html',context)
 
 def generate_cirujano(request):

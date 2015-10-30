@@ -27,33 +27,50 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
-  </head>
+    </head>
 
-  <body data-spy="scroll" data-offset="0" id="contenedor-urls">
+    <body data-spy="scroll" data-offset="0" id="contenedor-urls">
 
-  	<!-- Menu -->
-  	<br>
-  	<br>
-  	<div class = "container contenedor-urls">
-  		<table class="table">
-  			<thead>
-  				<tr>
-  					<th>Nombre</th>
-  					<th>Ciudad</th>
-  					<th>URL</th>
-  				</tr>
-  			</thead>
-  			<tbody>
-  				{%for cirujano in cirujanos%}
-  				<tr>
-  					<td>{{cirujano.h2_arriba}} </td>
-  					<td>{{cirujano.ciudad}}</td>
-  					<td><a href="/p/cirujano/{{cirujano.slug}}" target = "_blank">http://joinandenjoy.co/p/cirujano/{{cirujano.slug}}</a> </td>
-  				</tr>
-  				{% endfor %}
-  			</tbody>
-  		</table>
-  	</div>
+     <!-- Menu -->
+     <br>
+     <br>
+     
+     {%if estado == "ENVIADO"%}
+     <div class = "container span-correo-enviado">
+      <span> ¡Correo enviado! Ahora, a cruzar los dedos y a llamar :D</span>
+
+    </div>
+    {% endif %}
+    <div class = "container contenedor-urls">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Nombre</th>
+         <th>Ciudad</th>
+         <th>URL</th>
+       </tr>
+     </thead>
+     <tbody>
+      {%for cirujano in cirujanos%}
+      <tr>
+       <td>{{cirujano.h2_arriba}} </td>
+       <td>{{cirujano.ciudad}}</td>
+       <td><a href="/p/cirujano/{{cirujano.slug}}" target = "_blank">http://joinandenjoy.co/p/cirujano/{{cirujano.slug}}</a> </td>
+       <td class = "botones-td">
+        <form action = "/urls_cirujanos/" method ="post">{% csrf_token %}
+          <input style = "display:none;" name = "slug" value = "{{cirujano.slug}}">
+          {% if cirujano.correo_enviado == "NO"%}
+          <button type = "submit" value = "" class = "form-control btn-mail-vacio"> <i class = "fa fa-envelope-o icono-mail-vacio"></i></button>
+          {% else %}
+          <i class = "fa fa-envelope-o icono-mail"></i>
+          {% endif %}
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
 
 
 
@@ -81,8 +98,8 @@
     $(function() {
         //    fancybox
         jQuery(".fancybox").fancybox();
-    });
+      });
     </script>
 
-</body>
-</html>
+  </body>
+  </html>
