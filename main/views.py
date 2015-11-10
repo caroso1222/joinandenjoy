@@ -263,7 +263,7 @@ def enviar_mail_cirujano(slug):
 		subject, from_email, to = unicodedata.normalize('NFKD', sujeto).encode('ascii','ignore'), 'comercial@jecs.co', lista_correos
 
 
-		msg = EmailMultiAlternatives(subject, text_content, from_email, to, bcc=['sebastian.macias@joinandenjoy.co','comercial.jces.1@gmail.com'])
+		msg = EmailMultiAlternatives(subject, text_content, from_email, to, bcc=['sebastian.macias@joinandenjoy.co',])
 
 		msg.attach_alternative(html_content, "text/html")
 		msg.mixed_subtype = 'related'
